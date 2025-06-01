@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="esp">
+<head>
+    <script src="script.js"></script>
+    <title>ProyectoFinal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="Titulo" >Proyecto Final</h1>
+  <h2 id="Titulo2" >Introduccion a los sistemas</h2>
+  <img src="Imagenes/LogoMariano.png" alt="Logo" id="logoP">
+
+  <div id="menuOpen" onclick="menuClic()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div id="menuFranja">
+     <div id="menuClose" onclick="menuClic()">
+       <span></span>
+       <span></span>
+       <span></span>
+     </div>
+
+     <img src="Imagenes/LogoMariano.png" alt="Logo" id="logoFranja">
+
+    <ul class="menulist">
+      <li onclick="mostrarInicio()">Inicio</li>
+      <li onclick="mostrarHistoria()">Historia de las computadoras</li>
+      <li onclick="mostrarArquitectura()">Arquitectura de las computadoras</li>
+      <li>Base de datos</li>
+      <li>Redes de Computación</li>
+    </ul>
+
+  </div>
+  
+  <!-- Video del inicio -->
+  <div id="videoContainer">
+      <video src="Videos/Introduccion.mp4" id="introVi" controls></video>
+  </div>
+  
+  <!-- Video de Historia de las computadoras -->
+  <video src="Videos/Historiadelacomputadora.mp4" id="videoHistoria" controls></video>
+  <div id="historiaCompu"> 
+    <h2>Historia de las Computadoras</h2><br><br>
+    <p>Los antecedentes de la computadora se remontan al año 4.000 a. C. cuando se inventaron las primeras máquinas diseñadas para la aritmética y las primeras reglas de cálculo. Entre ellos se encuentra el ábaco, un importante adelanto en la materia. <br><br>
+       Posteriormente se crearon inventos más sofisticados, como la máquina de Blaise Pascal (conocida como Máquina de Pascal o Pascalina), creada en 1642. Consistía en una serie de engranajes que permitían realizar operaciones aritméticas mecánicamente. Al mejorarla, en 1671 Gottfried Leibniz dio inicio a las primeras calculadoras, primas cercanas del computador<br><br>
+       En 1802 Joseph Marie Jacquard inventó un sistema de tarjetas perforadas que le permitiría automatizar sus telares y reducir así la necesidad de mano de obra. En 1822 fueron la inspiración del inglés Charles Babbage en la creación de una máquina de cálculo diferencial. Babbage es «el padre de la computadora» porque en 1834 inventó una suerte de máquina analítica.
+    </p><br>
+    <h3><li class="numerosSub">Primera generación (de 1940 a 1952)</li></h3><br>
+    <p>La generación inicial de computadores inicia con la invención de las primeras máquinas de cálculo automáticas, que podían considerarse propiamente un “computador”. Respondían a la necesidad durante la Segunda Guerra Mundial de descifrar códigos secretos enemigos. <br><br> 
+       Estaban basadas electrónicamente en válvulas y tubos al vacío. Podían programarse mediante un conjunto de instrucciones simples, que debían suministrarse al sistema a través de tarjetas perforadas de papel o de cartón, como en el invento de Babbage.
+    </p><br>
+    <h3><li class="numerosSub">Segunda generación (de 1956 a 1964)</li></h3><br>
+    <p>La segunda generación representó un cambio importante, ya que se sustituyeron las válvulas de vacío por transistores, permitiendo hacer las máquinas mucho más pequeñas y reduciendo además su consumo eléctrico.<br><br>
+        Estas fueron, también, las primeras máquinas en disponer de un lenguaje de programación, como el célebre FORTRAN. Así, pronto se hizo obsoleto el sistema de las tarjetas perforadas.
+    </p><br>
+    <h3><li class="numerosSub">Tercera generación (de 1965 a 1971)</li></h3><br>
+    <p>El salto a la tercera generación estuvo determinado por la invención de los circuitos integrados: permitieron aumentar a capacidad de procesamiento de las máquinas y por si fuera poco reducir sus costos de fabricación.<br><br>
+       Se trataba de circuitos impresos en pastillas de silicio, con pequeños transistores y semiconductores incorporados. Este fue el primer paso hacia la miniaturización de las computadoras.
+    </p><br>
+    <h3><li class="numerosSub">Cuarta generación (de 1972 a 1980)</li></h3><br>
+    <p>La paulatina integración de los anteriores componentes electrónicos propició la aparición de los microprocesadores: nuevos circuitos integrados que reúnen todos los elementos fundamentales de la computadora y que empezaron pronto a llamarse chips.<br><br>
+       Gracias a ellos, las computadoras podían descentralizar sus operaciones lógico-aritméticas. Por ejemplo, reemplazar la memoria de anillos de silicio por memoria de chips, fue un paso importante hacia la micro computarización. A esta generación pertenecieron las primeras computadoras personales o PC.
+    </p><br>
+    <h3><li class="numerosSub">Quinta generación (de 1983 a 2019)</li></h3><br>
+    <p>La generación más reciente y vigente hoy en día, presenció la más enorme diversificación en el ámbito de la computadora de toda su historia. Se hizo portátil, liviana y cómoda, e incluso expandió sus fronteras de uso gracias a la posibilidad de las redes informáticas.<br><br>
+       El computador ya ni siquiera necesita estar fijo en una habitación, sino que puede viajar en nuestros maletines. Nunca antes la velocidad de procesamiento, la versatilidad y la comodidad convergieron tanto en el mundo de la computadora, permitiéndole fusionarse con los teléfonos (dando nacimiento al Smartphone) y con otros muchos formatos diferentes.
+    </p><br>
+    <h3><li class="numerosSub">Sexta generación (de 2019 al futuro próximo)</li></h3><br>
+    <p>Poco se sabe de la generación de computadores por venir. Los grandes adelantos en materia de inteligencia artificial, computación cuántica y algoritmos de aprendizaje prometen un futuro altamente automatizado y de enormes potenciales industriales. En él la computadora puede dejar de ser un artefacto que nos acompaña y pasar a estar dentro de nuestros propios cuerpos.
+    </p><br>
+  </div>
+
+
+  <div class="carouselContainer" id="carouselContainer">
+  <button class="arrow left" onclick="scrollCarousel('left')">&#10094;</button>
+   <div class="carousel" id="carousel">
+      <img src="Imagenes/hisCompu1.jpg" class="card" alt="Foto 1">
+      <img src="Imagenes/hisCompu2.jpg" class="card" alt="Foto 2">
+      <img src="Imagenes/hisCompu3.jpg" class="card" alt="Foto 3">
+      <img src="Imagenes/hisCompu4.jpg" class="card" alt="Foto 4">
+      <img src="Imagenes/hisCompu5.jpg" class="card" alt="Foto 5">
+      <img src="Imagenes/hisCompu6.jpg" class="card" alt="Foto 6">
+      <img src="Imagenes/hisCompu7.jpg" class="card" alt="Foto 7">
+    </div>
+    <button class="arrow right" onclick="scrollCarousel('right')">&#10095;</button>
+  </div>
+  </div>
+
+  <!-- Video de Arquitectura de las computadoras -->
+<video src="Videos/Arquitecturadelacomputadora.mp4" id="videoArquitectura" controls></video>
+
+<div id="arquitecturaCompu"> 
+  <h2>Arquitectura de las Computadoras</h2><br><br>
+  <p>
+    La arquitectura de las computadoras se refiere a la estructura y organización fundamental de los sistemas de cómputo. Incluye el diseño del hardware, el sistema de instrucciones, y la forma en que los componentes interactúan para ejecutar programas.
+    Comprender la arquitectura es clave para optimizar el rendimiento y eficiencia de los dispositivos.
+  </p><br>
+
+  <h3><li class="numerosSub">Unidad Central de Procesamiento (CPU)</li></h3><br>
+  <p>
+    La CPU es el “cerebro” del computador. Se encarga de ejecutar instrucciones, procesar datos y controlar el flujo de información entre los diferentes componentes. Está formada por la Unidad de Control, la Unidad Aritmético-Lógica y registros internos.
+  </p><br>
+
+  <h3><li class="numerosSub">Memoria Principal</li></h3><br>
+  <p>
+    La memoria principal o RAM almacena temporalmente los datos y programas que la CPU necesita durante la ejecución. Es volátil, por lo que su contenido se pierde cuando el equipo se apaga.
+  </p><br>
+
+  <h3><li class="numerosSub">Sistemas de Entrada/Salida (E/S)</li></h3><br>
+  <p>
+    Los sistemas de entrada y salida permiten la comunicación del computador con el exterior, ya sea mediante teclados, ratones, pantallas, impresoras, discos duros, etc. La arquitectura define cómo se conectan y gestionan estos dispositivos.
+  </p><br>
+
+  <h3><li class="numerosSub">Jerarquía de Memoria</li></h3><br>
+  <p>
+    Para optimizar la velocidad y costo, la arquitectura utiliza una jerarquía de memoria: registros, caché, RAM y almacenamiento secundario. Cada nivel tiene diferente capacidad y velocidad.
+  </p><br>
+
+  <h3><li class="numerosSub">Conjunto de Instrucciones</li></h3><br>
+  <p>
+    El conjunto de instrucciones es el lenguaje que entiende la CPU. Define las operaciones básicas que puede realizar, como suma, resta, saltos condicionales, y operaciones de entrada/salida.
+  </p><br>
+
+  <h3><li class="numerosSub">Arquitectura de Von Neumann</li></h3><br>
+  <p>
+    La mayoría de las computadoras usan esta arquitectura, que define que tanto los datos como los programas se almacenan en la misma memoria. Esto permite que la CPU lea instrucciones y datos secuencialmente.
+  </p><br>
+
+  <h3><li class="numerosSub">Arquitectura Harvard</li></h3><br>
+  <p>
+    En esta arquitectura, la memoria de instrucciones y datos están separadas, permitiendo acceder simultáneamente a ambos, lo que mejora el rendimiento en ciertos sistemas embebidos y DSP.
+  </p><br>
+
+  <h3><li class="numerosSub">Multiprocesamiento y Paralelismo</li></h3><br>
+  <p>
+    Los sistemas modernos pueden tener múltiples núcleos o procesadores que trabajan en paralelo para aumentar la velocidad y eficiencia de procesamiento.
+  </p><br>
+</div>
+
+<!-- Carrusel de arquitectura -->
+<div class="carouselContainer" id="carouselContainerArquitectura" style="margin-top: 40px;">
+  <button class="arrow left" onclick="scrollCarouselArquitectura('left')">&#10094;</button>
+  <div class="carousel" id="carouselArquitectura">
+    <img src="Imagenes/arquitectura1.jpg" class="card" alt="CPU">
+    <img src="Imagenes/arquitectura2.jpg" class="card" alt="Memoria RAM">
+    <img src="Imagenes/arquitectura3.jpg" class="card" alt="Jerarquía de memoria">
+    <img src="Imagenes/arquitectura4.jpg" class="card" alt="Arquitectura Von Neumann">
+    <img src="Imagenes/arquitectura5.jpg" class="card" alt="Multiprocesamiento">
+  </div>
+  <button class="arrow right" onclick="scrollCarouselArquitectura('right')">&#10095;</button>
+</div>
+
+
+
+ <footer id="creditos">
+  Created by Walter Snyder Pérez Chévez
+ </footer>
+ 
+</body>
+</html>

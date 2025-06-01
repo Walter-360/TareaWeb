@@ -1,0 +1,368 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    font-family: sans-serif;
+    padding-top: 50px; /* mueve todo el contenido hacia abajo sin afectar el fondo */
+}
+
+
+/* Para colocar la imagen de fondo */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("Imagenes/fondo.JPG");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(3px);
+    z-index: -2;
+}
+
+/* capa para oscurecer la imagen de fondo */
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: -1;
+}
+
+#Titulo {
+    color: white;
+    text-align: center;
+    font-family:   serif;
+    margin-bottom: 0.2em;
+    margin-top: 0.1px; /* mueve el texto hacia abajo */
+    font-size: 4rem;
+}
+
+#Titulo2 {
+    color: white;
+    text-align: center;
+    font-family:  serif;
+    font-size: 1.3rem;
+    margin-top: 0;
+}
+
+
+
+#menuOpen {
+  position: fixed;
+  top: 60px;
+  left: 40px;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 10; /* para que esté encima de todo */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 4px 0 12px rgba(255, 255, 255, 0.1);
+}
+
+#menuOpen span {
+  display: block;
+  height: 4.1px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+#menuOpen:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+#menuFranja {
+  position: fixed;
+  top: 0;
+  left: -315px; /* oculto por defecto */
+  width: 310px;
+  height: 100%;
+  background-color: #2e2e2e; /* gris oscuro */
+  z-index: 10;
+  transition: left 0.3s ease;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Mostrar el menú cuando se active */
+#menuFranja.active {
+  left: 0;
+}
+
+
+#menuClose {
+  position: absolute;
+   top: 60px;
+  left: 40px;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;               /* oculto por defecto */
+  transition: transform 0.5s ease 0.5s, opacity 0.5s ease 0.5s; /* delay */
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.6);
+}
+
+#menuClose span {
+  display: block;
+  width: 100%;
+  height: 4.1px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+#menuFranja.active #menuClose {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+#menuFranja.active #menuClose:hover {
+  transform: rotate(90deg) scale(1.1);
+}
+
+#logoFranja {
+  width: 65px;               
+  margin: 50px 20px 0px 200px; 
+  display: block;
+  border-radius: 8px;
+  border-radius: 50%;  /* hace que la imagen sea perfectamente redonda */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);  /* sombra oscura y difusa */
+}
+
+
+.menulist {
+  padding: 0 70px;          
+  margin-top: 80px;        
+  color: white;            
+  font-family: serif;
+  font-size: 1.5rem;
+}
+
+.menulist li {
+  margin-bottom: 15px;
+  cursor: pointer;
+  color: white;
+  transition: 
+    color 0.3s ease,
+    transform 0.3s ease;  
+}
+
+.menulist li:hover {
+  color: #b5b5bb;               
+  transform: scale(1.05);      
+}
+
+#videoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+  width: 100%;
+}
+
+#introVi {
+  margin-top: 100px;
+  width: 800px;
+  max-width: 95vw;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+}
+
+#videoHistoria {
+  display: none; /* oculto por defecto */
+  position: absolute;
+  top: 300px;
+  right: 100px;
+  width: 700px;
+  height: auto;
+  max-width: 90vw;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+}
+
+
+#historiaCompu {
+  display: none;
+  position: absolute;
+  top: 260px;
+  left: 150px;
+  background-color: rgba(100, 100, 100, 0.5); 
+  border-radius: 10px;
+  color: white;
+  width: 42%;           /* Aumenté de 42% a 60% */
+  height: 400px;        /* Aumenté de 300px a 400px */
+  font-family: serif;
+  padding: 40px 50px;
+  font-size: 1.0rem; 
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 5;
+  overflow-y: auto; 
+  scrollbar-width: thin;              /* Firefox */
+  scrollbar-color: rgba(255,255,255,0.3) transparent; 
+}
+
+.numerosSub {
+  list-style-type: square ; /* esto es por defecto, pero puedes usar lower-roman, upper-alpha, etc. */
+  margin-left: 30px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.carouselContainer {
+  display: none;
+  position: relative;
+  width: 700px;            /* tamaño del carrusel */
+  margin: 400px 0 0 200px;  /* margen superior y margen izquierdo */
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Flechas */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50px; /* más redondeadas */
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.arrow:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+#logoP {
+  position: absolute;   /* Usa 'fixed' si quieres que siempre esté visible al hacer scroll */
+  top: 40px;
+  right: 50px;
+  width: 100px;          /* Ajusta el tamaño como necesites */
+  height: auto;
+  z-index: 1000;        /* Asegura que esté sobre otros elementos */
+}
+
+#creditos {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  font-family: Arial, sans-serif;
+  background: rgba(0,0,0,0.3); /* opcional, para que se vea sobre fondos claros */
+  padding: 5px 0;
+}
+
+
+#videoArquitectura {
+  display: none; /* oculto por defecto */
+  position: absolute;
+  top: 300px;
+  right: 100px;
+  width: 700px;
+  height: auto;
+  max-width: 90vw;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+}
+
+#arquitecturaCompu {
+  display: none;
+  position: absolute;
+  top: 260px;
+  left: 150px;
+  background-color: rgba(100, 100, 100, 0.5); 
+  border-radius: 10px;
+  color: white;
+  width: 40%;           /* igual que historia */
+  height: 400px;        /* igual que historia */
+  font-family: serif;
+  padding: 40px 50px;
+  font-size: 1.0rem; 
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 5;
+  overflow-y: auto; 
+  scrollbar-width: thin;              /* Firefox */
+  scrollbar-color: rgba(255,255,255,0.3) transparent; 
+}
+
+.numerosSubArquitectura {
+  list-style-type: square; /* mismo estilo que historia */
+  margin-left: 30px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+
+/* Flechas */
+.arrowArquitectura {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50px; /* más redondeadas */
+  z-index: 10;
+}
+
+.arrowArquitectura.left {
+  left: 10px;
+}
+
+.arrowArquitectura.right {
+  right: 10px;
+}
+
+.arrowArquitectura:hover {
+  background-color: rgba(255,255,255,0.2);
+}
